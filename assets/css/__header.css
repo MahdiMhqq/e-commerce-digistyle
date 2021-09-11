@@ -1,0 +1,14 @@
+.carousel-custom-header .carousel-indicators{
+    background-color: rgba(var(--c-black-rgb),0.6);
+    margin: 0;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.carousel-custom-header a[class^="carousel-"]{
+    width: 40px;
+}
+
+.carousel-custom-header{
+    z-index: 0;
+}

@@ -1,0 +1,69 @@
+.zoom {
+  position: relative;
+}
+.zoom-thumb-hide .zoom-main {
+  height: 100%;
+}
+.zoom-main span {
+  background-position: 50% 50%;
+  background-repeat: none;
+  background-size: 200%;
+  overflow: hidden;
+  position: absolute;
+  cursor: zoom-in;
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  transition: border 0.5s ease, box-shadow 0.1s ease;
+}
+.zoom-main span:hover
+{
+ border: 1px solid rgba(0,0,0,0.1);
+ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.zoom-main img {
+  height: 100%;
+  display: block;
+  background: #fff;
+  transition: opacity 0.5s;
+  
+}
+.zoom-main img:hover {
+  opacity: 0;
+}
+.zoom .zoom-thumb a {
+  margin: 0 5px 5px 0;
+  padding: 5px;
+  border: solid thin #ccc;
+  height: 100%;
+  display: inline-block;
+  cursor: pointer;
+}
+.zoom .zoom-thumb a img {
+  height: 100%;
+}
+.zoom-main,
+.zoom-thumb a {
+  width: auto;
+}
+.zoom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.zoom .zoom-thumb {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.zoom img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+.zoom .zoom-thumb a img {
+  width: auto;
+}

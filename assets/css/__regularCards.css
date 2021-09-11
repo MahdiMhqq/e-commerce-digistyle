@@ -1,0 +1,17 @@
+.card-offer .card {
+  border: 1px solid rgba(var(--c-s-rgb), 0.5);
+  transition: all 0.3s ease;
+}
+
+.card-offer .card:hover {
+  transform: translateY(-2px);
+  border: 1px solid rgba(var(--c-danger-rgb), 0.5);
+}
+
+.regular-carousel .owl-item .card {
+  transition: transform 0.3s ease, box-shadow 0.5s ease;
+}
+.regular-carousel .owl-item .card:hover {
+  transform: scale(0.97);
+  box-shadow: 0 0 6px rgba(var(--c-black-rgb), 0.2);
+}

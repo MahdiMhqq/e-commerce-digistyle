@@ -1,0 +1,154 @@
+.p-bread-main-sec a.digikala-seller::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f54f";
+  margin: 0 9px;
+  font-size: 13px;
+}
+.product-desc .icons {
+  display: inline;
+  right: 0;
+  top: 0;
+  bottom: 30%;
+  margin: auto;
+  height: fit-content;
+  z-index: 10;
+  background-color: white;
+  padding: 5px 10px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: none;
+}
+.product-desc .icons a {
+  display: block;
+  white-space: nowrap;
+  color: var(--c-gray-light);
+}
+.product-desc .icons a::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+
+  font-size: 20px;
+  margin: 5px 0px;
+  transition: color 0.3s ease;
+}
+.product-desc .icons a:nth-child(1)::after {
+  font-weight: 400;
+  content: "\f004";
+}
+.product-desc .icons a:nth-child(2)::after {
+  font-weight: 900;
+  content: "\f1e0";
+}
+.product-desc .icons a:nth-child(3)::after {
+  font-weight: 400;
+  content: "\f0f3";
+}
+.product-desc .icons a:nth-child(4)::after {
+  font-weight: 900;
+  content: "\f201";
+}
+.product-desc .icons a:nth-child(5)::after {
+  font-weight: 900;
+  content: "\f422";
+}
+.product-desc .icons a:nth-child(6)::after {
+  font-weight: 900;
+  content: "\f03a";
+}
+.product-desc .icons a:hover {
+  color: var(--c-danger);
+}
+.product-desc .color-pick input {
+  display: none;
+}
+.product-desc .color-pick label {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 1px rgb(184, 184, 184);
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+.product-desc .color-pick label#p-c-red {
+  background-color: rgb(219, 39, 39);
+}
+.product-desc .color-pick label#p-c-green {
+  background-color: rgb(39, 219, 99);
+}
+.product-desc .color-pick label#p-c-black {
+  background-color: rgb(10, 9, 9);
+}
+.product-desc .color-pick label#p-c-gray {
+  background-color: rgb(46, 46, 46);
+}
+.product-desc .color-pick label#p-c-yellow {
+  background-color: rgb(255, 251, 37);
+}
+.product-desc .color-pick input:checked + label {
+  box-shadow: 0 0 0 2px rgb(0, 174, 255);
+}
+.p-price .card-body > a:hover {
+  background-color: #e2e2e2;
+}
+
+.which-seller .hover-popup {
+  width: 330px;
+  height: fit-content;
+  display: none;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  right: -330px;
+  margin: auto 0;
+  background-color: var(--c-white);
+}
+
+.which-seller .hover-popup::after {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  display: block;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  z-index: 1;
+  content: "";
+  border: 20px solid transparent;
+  border-right: 20px solid var(--c-white);
+}
+
+@media screen and (min-width: 768px) {
+  .which-seller:hover .hover-popup {
+    display: block;
+  }
+}
+
+.product-desc .image > div {
+  top: 80px;
+}
+
+.product-desc .p-min-desc .free-ship-img {
+  max-height: 70px;
+  width: auto;
+}
+
+.vendor .row > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
