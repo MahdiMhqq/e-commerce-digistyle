@@ -129,6 +129,7 @@ $(document).ready(function () {
   var navbarPosition = $(".navbar-menu").position();
   $(window).scroll(function () {
     scrollY = $(this).scrollTop();
+
     if (scrollY > $("#ad-top").height()) {
       el.css({
         position: "fixed",
@@ -139,16 +140,23 @@ $(document).ready(function () {
         position: "sticky",
       });
     }
+
     if (lastScroll > scrollY) {
+      //scroll Up
+      el.addClass("Moving")
+        .not(":animated")
+        .slideDown(function () {
+          el.removeClass("Moving");
+        });
       lastScroll = scrollY;
-      el.addClass("Moving").slideDown(function () {
-        el.removeClass("Moving");
-      });
     } else if (lastScroll < scrollY) {
+      //scroll Down
+      el.addClass("Moving")
+        .not(":animated")
+        .slideUp(function () {
+          el.removeClass("Moving");
+        });
       lastScroll = scrollY;
-      el.addClass("Moving").slideUp(function () {
-        el.removeClass("Moving");
-      });
     }
     $("p.pos").text(
       "Position, Top " + navbarPosition.top + "Offset, Top " + navbarOffset.top
