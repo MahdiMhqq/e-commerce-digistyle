@@ -120,3 +120,38 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function () {
+  var scrollY = 0;
+  var lastScroll = 0;
+  var el = $(".stick-on-scroll-md:not(.Moving)");
+  var navbarHeight = $(".navbar-menu").height();
+  var navbarOffset = $(".navbar-menu").offset();
+  var navbarPosition = $(".navbar-menu").position();
+  $(window).scroll(function () {
+    scrollY = $(this).scrollTop();
+    if (scrollY > $("#ad-top").height()) {
+      el.css({
+        position: "fixed",
+        top: navbarHeight,
+      });
+    } else {
+      el.css({
+        position: "sticky",
+      });
+    }
+    if (lastScroll > scrollY) {
+      lastScroll = scrollY;
+      el.addClass("Moving").slideDown(function () {
+        el.removeClass("Moving");
+      });
+    } else if (lastScroll < scrollY) {
+      lastScroll = scrollY;
+      el.addClass("Moving").slideUp(function () {
+        el.removeClass("Moving");
+      });
+    }
+    $("p.pos").text(
+      "Position, Top " + navbarPosition.top + "Offset, Top " + navbarOffset.top
+    );
+  });
+});

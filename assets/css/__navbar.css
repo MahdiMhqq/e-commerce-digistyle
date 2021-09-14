@@ -126,6 +126,10 @@
     z-index: 1200;
     width: 100%;
   }
+  .stick-on-scroll-md {
+    z-index: 1200;
+    width: 100%;
+  }
 }
 @media (max-width: 768px) {
   .custom-sticky-top-xs {
