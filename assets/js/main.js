@@ -131,17 +131,20 @@ $(document).ready(function () {
     scrollY = $(this).scrollTop();
 
     if (scrollY > $("#ad-top").height()) {
+      // if we didnt pass away ad-top section, act as a fixed element
       el.css({
         position: "fixed",
         top: navbarHeight,
       });
     } else {
+      // after that, stick to top
       el.css({
         position: "sticky",
       });
     }
 
     if (lastScroll > scrollY) {
+      // not(:animated) prevents multiple slideDown/Up in case of fast scroll Up and Down
       //scroll Up
       el.addClass("Moving")
         .not(":animated")
@@ -158,8 +161,5 @@ $(document).ready(function () {
         });
       lastScroll = scrollY;
     }
-    $("p.pos").text(
-      "Position, Top " + navbarPosition.top + "Offset, Top " + navbarOffset.top
-    );
   });
 });
