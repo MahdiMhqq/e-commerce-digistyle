@@ -121,45 +121,44 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  var scrollY = 0;
-  var lastScroll = 0;
-  var el = $(".stick-on-scroll-md:not(.Moving)");
-  var navbarHeight = $(".navbar-menu").height();
-  var navbarOffset = $(".navbar-menu").offset();
-  var navbarPosition = $(".navbar-menu").position();
-  $(window).scroll(function () {
-    scrollY = $(this).scrollTop();
-
-    if (scrollY > $("#ad-top").height()) {
-      // if we didnt pass away ad-top section, act as a fixed element
-      el.css({
-        position: "fixed",
-        top: navbarHeight,
-      });
-    } else {
-      // after that, stick to top
-      el.css({
-        position: "sticky",
-      });
-    }
-
-    if (lastScroll > scrollY) {
-      // not(:animated) prevents multiple slideDown/Up in case of fast scroll Up and Down
-      //scroll Up
-      el.addClass("Moving")
-        .not(":animated")
-        .slideDown(function () {
-          el.removeClass("Moving");
+  if ($(window).width() > 768) {//for working only in large devices
+    var scrollY = 0;
+    var lastScroll = 0;
+    var el = $(".stick-on-scroll-md:not(.Moving)");
+    var navbarHeight = $(".navbar-menu").height();
+    $(window).scroll(function () {
+      scrollY = $(this).scrollTop();
+      if (scrollY > $("#ad-top").height()) {
+        // if we didnt pass away ad-top section, act as a fixed element
+        el.css({
+          position: "fixed",
+          top: navbarHeight,
         });
-      lastScroll = scrollY;
-    } else if (lastScroll < scrollY) {
-      //scroll Down
-      el.addClass("Moving")
-        .not(":animated")
-        .slideUp(function () {
-          el.removeClass("Moving");
+      } else {
+        // after that, stick to top
+        el.css({
+          position: "sticky",
         });
-      lastScroll = scrollY;
-    }
-  });
+      }
+
+      if (lastScroll > scrollY) {
+        // not(:animated) prevents multiple slideDown/Up in case of fast scroll Up and Down
+        //scroll Up
+        el.addClass("Moving")
+          .not(":animated")
+          .slideDown(function () {
+            el.removeClass("Moving");
+          });
+        lastScroll = scrollY;
+      } else if (lastScroll < scrollY) {
+        //scroll Down
+        el.addClass("Moving")
+          .not(":animated")
+          .slideUp(function () {
+            el.removeClass("Moving");
+          });
+        lastScroll = scrollY;
+      }
+    });
+  }
 });
