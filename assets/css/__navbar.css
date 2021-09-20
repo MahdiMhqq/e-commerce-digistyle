@@ -94,6 +94,16 @@
   font-size: 16px;
 }
 
+.navbar-menu .navbar-menu__upper .brand{
+  max-height: 60px;
+  width: auto;
+  text-align: center;
+}
+.navbar-menu .navbar-menu__upper .brand img{
+  max-height: 60px;
+  width: auto;
+}
+
 .navbar-menu__upper .dropdown-menu > div.dropdown-divider {
   box-shadow: 0 0 10px var(--c-danger-dark) !important;
 }

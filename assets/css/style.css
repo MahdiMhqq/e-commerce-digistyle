@@ -441,3 +441,8 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #ff0000;
 }
+
+.row{
+  margin-left: 0!important;
+  margin-right: 0!important;
+}

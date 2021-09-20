@@ -54,71 +54,7 @@ var x = setInterval(function () {
   }
 }, 1000);
 
-// $("#liveToastBtn").click(function () {
-//   $("#liveToast").toast("show");
-// });
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip();
-});
 
-$(document).ready(function () {
-  $(".regular-carousel").owlCarousel({
-    rtl: true,
-    items: 7,
-    nav: true,
-    loop: false,
-    margin: 10,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: true,
-    stagePadding: 0,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      576: {
-        items: 2,
-      },
-      740: {
-        items: 3,
-      },
-      992: {
-        items: 4,
-      },
-      1200: {
-        items: 5,
-      },
-    },
-  });
-  $(".special-offer-carousel").owlCarousel({
-    rtl: true,
-    items: 7,
-    nav: true,
-    loop: true,
-    margin: 10,
-    autoplay: true,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    stagePadding: 0,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      576: {
-        items: 2,
-      },
-      740: {
-        items: 3,
-      },
-      992: {
-        items: 4,
-      },
-      1200: {
-        items: 5,
-      },
-    },
-  });
-});
 
 $(document).ready(function () {
   if ($(window).width() > 768) {//for working only in large devices
@@ -161,4 +97,99 @@ $(document).ready(function () {
       }
     });
   }
+  // config carousels
+  $(".regular-carousel").owlCarousel({
+    rtl: true,
+    items: 1,
+    nav: true,
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    stagePadding: 0,
+    responsiveClass:true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      576: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      992: {
+        items: 4,
+      },
+      1200: {
+        items: 5,
+      }
+    },
+  });
+  $(".num1-carousel").owlCarousel({
+    rtl: true,
+    items: 1,
+    nav: true,
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    stagePadding: 0,
+    responsiveClass:true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      576: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      992: {
+        items: 4,
+      },
+      1200: {
+        items: 5,
+      }
+    },
+  });
+  $(".special-offer-carousel").owlCarousel({
+    rtl: true,
+    items: 1,
+    nav: true,
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    stagePadding: 0,
+    responsiveClass:true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      576: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      992: {
+        items: 4,
+      },
+      1200: {
+        items: 5,
+      }
+    },
+  });
+});
+
+// $("#liveToastBtn").click(function () {
+//   $("#liveToast").toast("show");
+// });
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
 });
