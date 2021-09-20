@@ -127,35 +127,7 @@ $(document).ready(function () {
     autoplayHoverPause: true,
     stagePadding: 0,
     responsiveClass: true,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      576: {
-        items: 2,
-      },
-      740: {
-        items: 3,
-      },
-      992: {
-        items: 4,
-      },
-      1200: {
-        items: 5,
-      },
-    },
-  });
-  $(".num1-carousel").owlCarousel({
-    rtl: true,
-    items: 1,
-    nav: true,
-    loop: true,
-    margin: 10,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: true,
-    stagePadding: 0,
-    responsiveClass: true,
+    responsiveBaseElement: 'body',
     responsive: {
       0: {
         items: 1,
@@ -184,6 +156,7 @@ $(document).ready(function () {
     autoplayTimeout: 4000,
     autoplayHoverPause: true,
     stagePadding: 0,
+    responsiveBaseElement: 'body',
     responsiveClass: true,
     responsive: {
       0: {
