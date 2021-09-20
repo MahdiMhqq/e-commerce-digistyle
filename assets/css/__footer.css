@@ -52,16 +52,16 @@
   font-weight: 400;
   content: "\f081";
 }
-.footer-sec .useful-links .input-group{
-  z-index: 0!important;
+.footer-sec .useful-links .input-group {
+  z-index: 0 !important;
 }
-.footer-sec .about-shop p{
+.footer-sec .about-shop p {
   line-height: 30px;
 }
-.copy-right-sec p{
+.copy-right-sec p {
   word-spacing: 2px;
 }
-.copy-right-sec p{
+.copy-right-sec p {
   letter-spacing: 2px;
 }
 .copy-right-sec p::after {
@@ -76,4 +76,36 @@
   font-weight: 400;
   content: "\f1f9";
   vertical-align: -4px;
+}
+
+.scroll-to-top {
+  display: inline-block;
+  position: fixed;
+  bottom: -100px;
+  right: 30px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: 0.2s ease;
+  z-index: 1;
+}
+.scroll-to-top.show {
+  bottom: 30px !important;
+}
+
+.scroll-to-top i {
+  font-size: 40px;
+  color: var(--c-s);
+  transition: 0.2s ease;
+  border-radius: 100%;
+  box-shadow: 0 0 15px 3px var(--c-danger-light), inset 0 0 15px 3px var(--c-s);
+  background-color: rgba(var(--c-danger-rgb), 0.5);
+}
+.scroll-to-top:hover,
+.scroll-to-top:focus,
+.scroll-to-top:active {
+  outline: none;
+}
+.scroll-to-top.show:hover i {
+  transform: scale(1.1) translateY(-20px);
 }

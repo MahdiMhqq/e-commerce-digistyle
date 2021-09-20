@@ -54,49 +54,67 @@ var x = setInterval(function () {
   }
 }, 1000);
 
-
-
 $(document).ready(function () {
-  if ($(window).width() > 768) {//for working only in large devices
-    var scrollY = 0;
-    var lastScroll = 0;
-    var el = $(".stick-on-scroll-md:not(.Moving)");
-    var navbarHeight = $(".navbar-menu").height();
-    $(window).scroll(function () {
-      scrollY = $(this).scrollTop();
-      if (scrollY > $("#ad-top").height()) {
-        // if we didnt pass away ad-top section, act as a fixed element
-        el.css({
-          position: "fixed",
-          top: navbarHeight,
-        });
-      } else {
-        // after that, stick to top
-        el.css({
-          position: "sticky",
-        });
-      }
+  //navbar product show/hide on scroll up/down
+  var scrollY = 0;
+  var lastScroll = 0;
+  var largeDevices = $(window).width() > 768; //for working only in large devices
 
-      if (lastScroll > scrollY) {
-        // not(:animated) prevents multiple slideDown/Up in case of fast scroll Up and Down
-        //scroll Up
-        el.addClass("Moving")
+  var scrollToTop = $(".scroll-to-top");
+  var stickScroll = $(".stick-on-scroll-md:not(.Moving)");
+  var navbarHeight = $(".navbar-menu").height();
+  $(window).scroll(function () {
+    scrollY = $(this).scrollTop();
+    if (scrollY > $("#ad-top").height() && largeDevices) {
+      // if we didnt pass away ad-top section, act as a fixed element
+      stickScroll.css({
+        position: "fixed",
+        top: navbarHeight,
+      });
+    } else if (largeDevices) {
+      // after that, stick to top
+      stickScroll.css({
+        position: "sticky",
+      });
+    }
+
+    if (lastScroll > scrollY) {
+      // not(:animated) prevents multiple slideDown/Up in case of fast scroll Up and Down
+      //scroll Up
+      if (largeDevices) {
+        stickScroll
+          .addClass("Moving")
           .not(":animated")
           .slideDown(function () {
-            el.removeClass("Moving");
+            stickScroll.removeClass("Moving");
           });
-        lastScroll = scrollY;
-      } else if (lastScroll < scrollY) {
-        //scroll Down
-        el.addClass("Moving")
+      }
+      if (scrollY > $(window).height()) {
+        scrollToTop.addClass("show");
+      } else {
+        scrollToTop.removeClass("show");
+      }
+      if (scrollY === 0) {
+        $("html,body").removeClass("scrolling"); //eliminate scrolling class
+      }
+      lastScroll = scrollY;
+    } else if (lastScroll < scrollY) {
+      //scroll Down
+      if (largeDevices) {
+        stickScroll
+          .addClass("Moving")
           .not(":animated")
           .slideUp(function () {
-            el.removeClass("Moving");
+            stickScroll.removeClass("Moving");
           });
-        lastScroll = scrollY;
       }
-    });
-  }
+
+      scrollToTop.removeClass("show");
+
+      lastScroll = scrollY;
+    }
+  });
+
   // config carousels
   $(".regular-carousel").owlCarousel({
     rtl: true,
@@ -108,7 +126,7 @@ $(document).ready(function () {
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
     stagePadding: 0,
-    responsiveClass:true,
+    responsiveClass: true,
     responsive: {
       0: {
         items: 1,
@@ -124,7 +142,7 @@ $(document).ready(function () {
       },
       1200: {
         items: 5,
-      }
+      },
     },
   });
   $(".num1-carousel").owlCarousel({
@@ -137,7 +155,7 @@ $(document).ready(function () {
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
     stagePadding: 0,
-    responsiveClass:true,
+    responsiveClass: true,
     responsive: {
       0: {
         items: 1,
@@ -153,7 +171,7 @@ $(document).ready(function () {
       },
       1200: {
         items: 5,
-      }
+      },
     },
   });
   $(".special-offer-carousel").owlCarousel({
@@ -166,7 +184,7 @@ $(document).ready(function () {
     autoplayTimeout: 4000,
     autoplayHoverPause: true,
     stagePadding: 0,
-    responsiveClass:true,
+    responsiveClass: true,
     responsive: {
       0: {
         items: 1,
@@ -182,8 +200,16 @@ $(document).ready(function () {
       },
       1200: {
         items: 5,
-      }
+      },
     },
+  });
+
+  scrollToTop.click(function (d) {
+    d.preventDefault;
+    //not scrolling for prevent multiple clicks and buggy behaviour
+    $("html,body").not(".scrolling").addClass("scrolling").animate({
+      scrollTop: "0",
+    });
   });
 });
 
