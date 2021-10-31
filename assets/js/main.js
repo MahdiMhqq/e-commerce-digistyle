@@ -58,12 +58,13 @@ $(document).ready(function () {
   //navbar product show/hide on scroll up/down
   var scrollY = 0;
   var lastScroll = 0;
-  var largeDevices = $(window).width() > 768; //for working only in large devices
 
   var scrollToTop = $(".scroll-to-top");
   var stickScroll = $(".stick-on-scroll-md:not(.Moving)");
-  var navbarHeight = $(".navbar-menu").height();
-  $(window).scroll(function () {
+
+  $(window).on("scroll resize", function () {
+    var navbarHeight = $(".navbar-menu").height();
+    var largeDevices = $(window).width() > 768; //for working only in large devices
     scrollY = $(this).scrollTop();
     if (scrollY > $("#ad-top").height() && largeDevices) {
       // if we didnt pass away ad-top section, act as a fixed element
@@ -75,6 +76,11 @@ $(document).ready(function () {
       // after that, stick to top
       stickScroll.css({
         position: "sticky",
+      });
+    } else if (!largeDevices) {
+      stickScroll.css({
+        position: "sticky",
+        top: 0,
       });
     }
 
@@ -127,7 +133,7 @@ $(document).ready(function () {
     autoplayHoverPause: true,
     stagePadding: 0,
     responsiveClass: true,
-    responsiveBaseElement: 'body',
+    responsiveBaseElement: "body",
     responsive: {
       0: {
         items: 1,
@@ -156,7 +162,7 @@ $(document).ready(function () {
     autoplayTimeout: 4000,
     autoplayHoverPause: true,
     stagePadding: 0,
-    responsiveBaseElement: 'body',
+    responsiveBaseElement: "body",
     responsiveClass: true,
     responsive: {
       0: {
