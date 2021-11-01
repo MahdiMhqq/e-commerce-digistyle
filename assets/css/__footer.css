@@ -95,11 +95,13 @@
 
 .scroll-to-top i {
   font-size: 40px;
-  color: var(--c-s);
+  color: var(--c-danger-light);
   transition: 0.2s ease;
   border-radius: 100%;
-  box-shadow: 0 0 15px 3px var(--c-danger-light), inset 0 0 15px 3px var(--c-s);
+  box-shadow: 0 0 15px 3px var(--c-danger-light),
+    inset 0 0 15px 3px var(--c-danger);
   background-color: rgba(var(--c-danger-rgb), 0.5);
+  background-color: white;
 }
 .scroll-to-top:hover,
 .scroll-to-top:focus,
